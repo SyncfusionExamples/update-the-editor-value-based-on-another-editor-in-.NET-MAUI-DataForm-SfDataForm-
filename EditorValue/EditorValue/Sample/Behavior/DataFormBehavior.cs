@@ -5,7 +5,7 @@ namespace EditorValue
 {
     public class DataFormBehavior : Behavior<ContentPage>
     {
-        private SfDataForm dataForm;
+        private SfDataForm? dataForm;
         protected override void OnAttachedTo(ContentPage bindable)
         {
             base.OnAttachedTo(bindable);
@@ -20,16 +20,16 @@ namespace EditorValue
                 dataForm.GenerateDataFormItem += OnGenerateDataFormItem;
             }
         }
-        private void OnGenerateDataFormItem(object sender, GenerateDataFormItemEventArgs e)
+        private void OnGenerateDataFormItem(object? sender, GenerateDataFormItemEventArgs e)
         {
             if (dataForm != null && e.DataFormItem is DataFormDateItem dateItem)
             {
                 dateItem.MaximumDisplayDate = DateTime.Now;
             }
         }
-        private void OnDataObjectPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void OnDataObjectPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (dataForm.DataObject != null && dataForm.DataObject is DataFormModel dataObject)
+            if (dataForm?.DataObject != null && dataForm.DataObject is DataFormModel dataObject)
             {
                 dataObject.Age = DateTime.Now.Year - dataObject.BirthDate.Year;
                 dataForm.UpdateEditor("Age");
