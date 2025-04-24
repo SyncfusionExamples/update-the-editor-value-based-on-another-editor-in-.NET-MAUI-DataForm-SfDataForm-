@@ -5,13 +5,13 @@ namespace EditorValue;
 
 public class DataFormModel : INotifyPropertyChanged
 {
-    private string name;
-    private string password;
+    private string name = string.Empty;
+    private string password = string.Empty;
     private DateTime birthDate = new DateTime(1998,07,03);
     private int? age;
     private bool eligibility;
-    private string city;
-    private string country;
+    private string city = string.Empty;
+    private string country = string.Empty;
     public DataFormModel()
     {
 
@@ -114,7 +114,7 @@ public class DataFormModel : INotifyPropertyChanged
         }
     }
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
     private void RaisePropertyChanged(string propertyName)
     {
         this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
